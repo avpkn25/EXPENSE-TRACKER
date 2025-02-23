@@ -4,12 +4,13 @@ import TransactionForm from './components/TransactionForm';
 import TransactionList from './components/TransactionList';
 import Dashboard from './components/Dashboard';
 import { useExpense } from './context/ExpenseContext';
+import ThemeToggle from './components/ThemeToggle';
 
 function AppContent() {
   const { state } = useExpense();
   
   return (
-    <div className={`min-h-screen ${state.darkMode ? 'dark bg-gray-900 text-white' : 'bg-gray-100'}`}>
+    <div className={`min-h-screen relative ${state.darkMode ? 'dark bg-gray-900 text-white' : 'bg-gray-100'}`}>
       <div className="container mx-auto px-4 py-8">
         <Header />
         <Dashboard />
@@ -18,6 +19,7 @@ function AppContent() {
           <TransactionList />
         </div>
       </div>
+      <ThemeToggle />
     </div>
   );
 }
